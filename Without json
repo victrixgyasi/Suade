@@ -1,0 +1,8 @@
+import pandas as pd
+excel_data_df = pd.read_excel('securities.xlsx') # read file into panda data frame
+json_str = excel_data_df.to_json() # convert xlsx to json
+
+to_drop = ['impairment_amount',
+           'notes'] # columns we want to get rid of
+excel_data_df.drop(to_drop, inplace=True, axis=1) # dropping the columns
+excel_data_df.head() # printing the first five line of data
